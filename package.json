@@ -15,10 +15,10 @@
     "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
     "mongoose": "^6.1.5",
+    "dotenv": "^10.0.0",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "nodemon": "^2.0.15"
   }
 }
