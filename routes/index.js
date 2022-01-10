@@ -5,7 +5,8 @@ var URL = require("../model/urlPaths");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   var shortUrl = req.flash("shortUrl")[0];
-  res.render("index", { shortUrl });
+  var qrCodeImage = req.flash("qrCodeImage")[0];
+  res.render("index", { shortUrl, qrCodeImage });
 });
 
 router.get("/:id", (req, res, next) => {

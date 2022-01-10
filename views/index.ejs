@@ -37,16 +37,22 @@
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <div>
-          <% if(shortUrl) { %>
+        <% if(shortUrl) { %>
+        <div class="text-center py-4">
           <p>
             Created URL Is
             <a href="https://weshort.herokuapp.com/<%= shortUrl %>"
               >https://weshort.herokuapp.com/<%= shortUrl %></a
             >
           </p>
-          <% } %>
+          <img
+            style="height: 150px; width: auto"
+            class="img-fluid"
+            src="<%= qrCodeImage %>"
+            alt=""
+          />
         </div>
+        <% } %>
       </div>
     </section>
 

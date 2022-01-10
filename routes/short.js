@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var URL = require("../model/urlPaths");
+var QRCode = require("qrcode");
 
 router.post("/", (req, res, next) => {
   function uniqueShort() {
@@ -16,12 +17,21 @@ router.post("/", (req, res, next) => {
   }
 
   req.body.shortPath = uniqueShort();
-  URL.create(req.body, (err, url) => {
-    if (err) return next(err);
-    console.log(url + " created");
-    req.flash("shortUrl", url.shortPath);
-    res.redirect("/");
-  });
+  req.body.qrCode = "";
+
+  QRCode.toDataURL(
+    "https://weshort.herokuapp.com/" + req.body.shortPath,
+    (err, url) => {
+      req.body.qrCode = url;
+      URL.create(req.body, (err, url) => {
+        if (err) return next(err);
+        console.log(url + " created");
+        req.flash("shortUrl", url.shortPath);
+        req.flash("qrCodeImage", url.qrCode);
+        res.redirect("/");
+      });
+    }
+  );
 });
 
 module.exports = router;
