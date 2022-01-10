@@ -16,11 +16,10 @@ var shortRouter = require("./routes/short");
 var app = express();
 
 mongoose.connect(
-  "mongodb://localhost/userurls",
+  process.env.MONGODBURL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     console.log("Connected with [mongodb]", err ? false : true);
-    console.log("ctrl + click -> " + "http://localhost:3000/");
   }
 );
 
@@ -39,9 +38,10 @@ app.use(
     secret: process.env.SESSIONSECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/userurls" }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGODBURL }),
   })
 );
+// "mongodb://localhost/userurls"
 app.use(flash());
 
 app.use("/", indexRouter);
