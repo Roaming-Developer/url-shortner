@@ -15,7 +15,7 @@ router.get("/:id", (req, res, next) => {
     if (!urldoc) {
       res.send("ID Doesn't Exist");
     } else {
-      res.send(urldoc.url);
+      res.redirect(urldoc.url);
     }
   });
 });
