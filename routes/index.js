@@ -16,9 +16,11 @@ router.get("/:id/qr", (req, res, next) => {
     if (!urldoc) {
       res.send("ID Doesn't Exist");
     } else {
-      var shortUrl = req.flash("shortUrl")[0];
-      var qrCodeImage = req.flash("qrCodeImage")[0];
-      res.render("details", { shortUrl, qrCodeImage });
+      var originalUrl = urldoc.url;
+      var shortUrl = urldoc.shortPath;
+      var qrCodeImage = urldoc.qrCode;
+      console.log(shortUrl);
+      res.render("details", { originalUrl, shortUrl, qrCodeImage });
     }
   });
 });

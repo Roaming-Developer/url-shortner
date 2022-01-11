@@ -12,14 +12,17 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="../stylesheets/style.css" />
   </head>
   <body>
     <section class="py-5">
       <div class="container">
-        </form>
         <% if(shortUrl) { %>
         <div class="text-center py-4">
+          <p>
+            Original URL
+            <a href="<%= originalUrl %>"><%= originalUrl %></a>
+          </p>
           <p>
             Short URL Is
             <a href="https://weshort.herokuapp.com/<%= shortUrl %>"
@@ -33,7 +36,6 @@
             alt=""
           />
           <p>Generated QR Code.</p>
-
         </div>
         <% } %>
       </div>
@@ -45,6 +47,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="javascripts/main.js"></script>
+    <script src="../javascripts/main.js"></script>
   </body>
 </html>
