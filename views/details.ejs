@@ -17,30 +17,11 @@
   <body>
     <section class="py-5">
       <div class="container">
-        <h3>URL Shortner</h3>
-
-        <form method="POST" action="/short">
-          <div class="mb-3">
-            <label for="url" class="form-label">Enter URL</label>
-            <input
-              type="url"
-              class="form-control"
-              id="url"
-              aria-describedby="url"
-              required
-              name="url"
-            />
-            <div id="urlHelp" class="form-text">
-              Please add complete url including protocol.
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <% if(shortUrl) { %>
         <div class="text-center py-4">
           <p>
-            Created URL Is
+            Short URL Is
             <a href="https://weshort.herokuapp.com/<%= shortUrl %>"
               >https://weshort.herokuapp.com/<%= shortUrl %></a
             >
@@ -52,12 +33,7 @@
             alt=""
           />
           <p>Generated QR Code.</p>
-          <p class="form-text">
-            View agian at
-            <a href="https://weshort.herokuapp.com/<%= shortUrl %>/qr"
-              >https://weshort.herokuapp.com/<%= shortUrl %>/qr</a
-            >
-          </p>
+
         </div>
         <% } %>
       </div>
