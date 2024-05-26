@@ -20,7 +20,7 @@ router.post("/", (req, res, next) => {
   req.body.qrCode = "";
 
   QRCode.toDataURL(
-    "https://weshort.herokuapp.com/" + req.body.shortPath,
+    "https://6c7f2q-3000.csb.app/" + req.body.shortPath,
     (err, url) => {
       req.body.qrCode = url;
       URL.create(req.body, (err, url) => {
@@ -29,7 +29,7 @@ router.post("/", (req, res, next) => {
         req.flash("qrCodeImage", url.qrCode);
         res.redirect("/");
       });
-    }
+    },
   );
 });
 
