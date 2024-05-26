@@ -19,7 +19,6 @@ router.get("/:id/qr", (req, res, next) => {
       var originalUrl = urldoc.url;
       var shortUrl = urldoc.shortPath;
       var qrCodeImage = urldoc.qrCode;
-      console.log(shortUrl);
       res.render("details", { originalUrl, shortUrl, qrCodeImage });
     }
   });

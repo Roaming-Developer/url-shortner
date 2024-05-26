@@ -25,7 +25,6 @@ router.post("/", (req, res, next) => {
       req.body.qrCode = url;
       URL.create(req.body, (err, url) => {
         if (err) return next(err);
-        console.log(url + " created");
         req.flash("shortUrl", url.shortPath);
         req.flash("qrCodeImage", url.qrCode);
         res.redirect("/");
